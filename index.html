@@ -61,7 +61,11 @@
     </div>
 
 
-    <script>
+    <script>  
+     
+
+     
+
 /*      $(document).ready(function () {
             $("button").mouseenter(function () {
                 console.log('cliccato');
@@ -90,7 +94,7 @@
                     console.table(result)
                 }
             })
-        }) */
+        }) */        
 
         var card = $("#card");
         var title = $(".card-title");
@@ -138,15 +142,23 @@
                 $.ajax({
                     url:'https://serpapi.com/search.json?q=Red+apple&tbm=isch&ijn=0&chips=0&api_key=43a6ce3b682f4e983321ac1da82403fdc9a03b2e903061ed339adfaa50f160b1',
                     type:'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization': 'Basic PEJhc2ljIEF1dGggVXNlcm5hbWU+OjxCYXNpYyBBdXRoIFBhc3N3b3JkPg==',
-                        'Access-Control-Allow-Origin': 'https://serpapi.com/search.json?q=Red+apple&tbm=isch&ijn=0&chips=0&api_key=43a6ce3b682f4e983321ac1da82403fdc9a03b2e903061ed339adfaa50f160b1'       
+                    crossDomain: true,
+                    responseType:'application/json',
+                    contentType:'application/json',
+                    xhrFields : {
+                        withCredentials:false
                     },
+                    headers: {
+                        'Access-Control-Allow-Credentials': true,
+                        'Access-Control-Allow-Origin':'*',
+                        'Access-Control-Allow-Methods':'GET',
+                        'Access-Control-Allow-Headers':'application/json'
+                        
+                    }, 
                     success: function(result){
                         console.log(result);
                     }
-                })
+                }) 
 
                 
                 
@@ -158,8 +170,13 @@
         });
 
     </script>
+    
+
+
+
 
     <script src="main.js"></script>
+    
 </body>
 
 </html>
